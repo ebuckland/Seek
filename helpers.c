@@ -42,7 +42,8 @@ bool search(int value, int values[], int min, int max)
         {
             max = (max + min + 1) / 2 - 1;
         }
-        else if (values[(max + min + 1) / 2] == value || (values[(max + min - 1) /2] == value)) 
+        else if (values[(max + min + 1) / 2] == value 
+        || (values[(max + min - 1) / 2] == value)) 
         {
             return 1;
         }
@@ -58,7 +59,9 @@ bool search(int value, int values[], int min, int max)
         {
             max = (max + min) / 2 - 1;
         }
-        else if (values[(max + min) / 2] == value || (values[(max + min + 2) /2] == value) || (values[(max + min - 2) /2] == value)) 
+        else if (values[(max + min) / 2] == value 
+        || (values[(max + min + 2) / 2] == value) 
+        || (values[(max + min - 2) / 2] == value)) 
         {
             return 1;
         }

@@ -20,6 +20,7 @@
  */
 bool search(int value, int values[], int min, int max)
 {
+    // if the min and max are a small distance apart
     if (max - min < 2) 
     {
         if (values[max] == value || values[min] == value) 
@@ -31,17 +32,21 @@ bool search(int value, int values[], int min, int max)
             return 0;
         }
     }
+    // if the difference is even
     if ((max + 1 - min) % 2 == 0) 
     {
+        // if the middle value is less than the value
         if (values[(max + min + 1) / 2] < value) 
         {
             min = (max + min + 1) / 2 + 1;
             
         }
+        // if the middle value is greater than the value
         else if (values[(max + min + 1) / 2] > value) 
         {
             max = (max + min + 1) / 2 - 1;
         }
+        // if the middle value is correct
         else if (values[(max + min + 1) / 2] == value 
         || (values[(max + min - 1) / 2] == value)) 
         {
@@ -49,16 +54,20 @@ bool search(int value, int values[], int min, int max)
         }
     }
     else 
+    // if the difference is odd
     {
+        // if the middle value is less than the value
         if (values[(max + min) / 2] < value) 
         {
             min = (max + min) / 2 + 1;
             
         }
+        // if the middle value is greater than the value
         else if (values[(max + min) / 2] > value) 
         {
             max = (max + min) / 2 - 1;
         }
+        // if the middle value is correct
         else if (values[(max + min) / 2] == value 
         || (values[(max + min + 2) / 2] == value) 
         || (values[(max + min - 2) / 2] == value)) 
@@ -66,11 +75,12 @@ bool search(int value, int values[], int min, int max)
             return 1;
         }
     }
+    // quick check for the min and max values
     if (values[min] == value || values[max] == value) 
     {
         return 1;
     }
-    
+    // recursive statement
     if (search(value, values, min, max)) 
     {
         return 1;
